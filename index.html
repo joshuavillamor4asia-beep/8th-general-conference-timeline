@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>8th General Conference — Content Timeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#005542;
+    --green-deep:#013c2f;
+    --yellow:#FEDC48;
+    --blue:#6590CC;
+    --green-tint: rgba(0,85,66,0.08);
+    --yellow-tint: rgba(254,220,72,0.28);
+    --event-tint: rgba(0,85,66,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Poppins', sans-serif;
+    background: var(--green-deep);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 6px),
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,0.04), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(255,255,255,0.05), transparent 45%);
+    color:#1b1b1b;
+    padding: 28px 18px 60px;
+  }
+  .wrap{ max-width:1180px; margin:0 auto; }
+
+  /* ---------- Header ---------- */
+  .header{
+    position:relative;
+    background:#ffffff;
+    border-radius:26px;
+    padding:56px 44px 40px;
+    margin-bottom:34px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.28);
+  }
+  .tag-pill{
+    position:absolute;
+    top:-22px; left:34px;
+    background:var(--yellow);
+    color:var(--green);
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:1px;
+    padding:12px 26px;
+    border-radius:30px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+  .event-title{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:34px;
+    color:var(--green);
+    letter-spacing:0.5px;
+    margin-bottom:6px;
+  }
+  .event-sub{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    color:var(--blue);
+    letter-spacing:1.5px;
+    margin-bottom:22px;
+  }
+  .theme-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:32px;
+    align-items:start;
+  }
+  .theme-quote{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:26px;
+    color:var(--green);
+    line-height:1.35;
+  }
+  .theme-quote span{ color:var(--blue); }
+  .theme-body p{
+    font-size:14.5px;
+    line-height:1.7;
+    color:#333;
+    margin-bottom:10px;
+  }
+  .theme-body ul{
+    list-style:none;
+    margin:12px 0 14px;
+    padding:0;
+  }
+  .theme-body li{
+    font-size:14px;
+    line-height:1.6;
+    color:#333;
+    padding-left:22px;
+    position:relative;
+    margin-bottom:6px;
+  }
+  .theme-body li::before{
+    content:"—";
+    position:absolute; left:0; top:0;
+    color:var(--yellow);
+    font-weight:800;
+    -webkit-text-stroke: 0.6px var(--green);
+  }
+  .theme-body strong{ color:var(--green); }
+
+  /* ---------- Legend ---------- */
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:18px 26px;
+    margin-bottom:34px;
+    box-shadow:0 12px 26px rgba(0,0,0,0.22);
+    align-items:center;
+  }
+  .legend-title{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+    color:var(--green);
+    margin-right:6px;
+  }
+  .legend-item{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:#333; }
+  .swatch{ width:16px; height:16px; border-radius:5px; flex:none; }
+  .swatch.blue{ background:var(--blue); }
+  .swatch.yellow{ background:var(--yellow); border:1px solid rgba(0,0,0,0.1); }
+  .swatch.green{ background:var(--green); }
+  .swatch.event{ background:var(--green); border:2px solid var(--yellow); }
+  .swatch.tint-green{ background:var(--green-tint); border:1px solid var(--green); }
+  .swatch.tint-yellow{ background:var(--yellow-tint); border:1px solid #cbb400; }
+
+  /* ---------- Month cards ---------- */
+  .months{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+  }
+  .month-card{
+    background:#ffffff;
+    border-radius:22px;
+    padding:26px 26px 20px;
+    box-shadow:0 16px 34px rgba(0,0,0,0.25);
+  }
+  .month-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    border-bottom:3px solid var(--yellow);
+    padding-bottom:10px;
+  }
+  .month-name{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:26px;
+    color:var(--green);
+    letter-spacing:1px;
+  }
+  .month-year{
+    font-family:'Montserrat', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--blue);
+  }
+  .ribbon{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:13px;
+    padding:10px 16px;
+    border-radius:10px;
+    margin-bottom:14px;
+    letter-spacing:0.2px;
+  }
+  .ribbon-green{ background:var(--green); color:#fff; }
+  .ribbon-yellow{ background:var(--yellow); color:var(--green); }
+
+  .dow-row{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+    margin-bottom:6px;
+  }
+  .dow{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:1px;
+    text-align:center;
+    color:#8a8a8a;
+    padding:4px 0;
+  }
+  .day-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+  }
+  .day-cell{
+    min-height:92px;
+    border-radius:10px;
+    background:#fafafa;
+    border:1px solid #ececec;
+    padding:6px 6px 8px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    overflow:hidden;
+  }
+  .day-cell.empty{ background:transparent; border:none; }
+  .day-num{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    color:#555;
+  }
+  .day-tasks{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .day-cell.tint-green{ background:var(--green-tint); border-color:rgba(0,85,66,0.25); }
+  .day-cell.tint-green .day-num{ color:var(--green); }
+  .day-cell.tint-yellow{ background:var(--yellow-tint); border-color:rgba(203,180,0,0.4); }
+  .day-cell.tint-event{ background:var(--event-tint); border:2px solid var(--yellow); }
+  .day-cell.tint-event .day-num{ color:var(--green); font-weight:800; }
+
+  .pill{
+    font-size:10.5px;
+    line-height:1.25;
+    font-weight:600;
+    border-radius:6px;
+    padding:4px 6px;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .pill-blue{ background:var(--blue); }
+  .pill-yellow{ background:var(--yellow); color:var(--green); font-weight:700; }
+  .pill-event{ background:var(--green); color:#fff; font-weight:700; border:1px solid var(--yellow); }
+  .pill-text{ }
+
+  .phase-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:16px;
+  }
+  .phase{
+    flex:1 1 220px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    border-radius:10px;
+    padding:10px 14px;
+  }
+  .phase-green{ background:var(--green-tint); border-left:4px solid var(--green); }
+  .phase-yellow{ background:var(--yellow-tint); border-left:4px solid #cbb400; }
+  .phase-event{ background:var(--event-tint); border-left:4px solid var(--yellow); }
+  .phase-date{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:11px;
+    letter-spacing:0.5px;
+    color:var(--green);
+  }
+  .phase-text{ font-size:12px; color:#333; }
+
+  .footer-note{
+    text-align:center;
+    color:rgba(255,255,255,0.55);
+    font-size:11.5px;
+    margin-top:36px;
+    line-height:1.6;
+  }
+
+  /* ---------- Responsive: tablet ---------- */
+  @media (max-width: 820px){
+    .theme-grid{ grid-template-columns:1fr; }
+    .event-title{ font-size:28px; }
+    .header{ padding:48px 28px 32px; }
+  }
+
+  /* ---------- Responsive: phone — calendars become a day-by-day agenda list ---------- */
+  @media (max-width: 640px){
+    body{ padding:18px 10px 44px; }
+    .header{ padding:44px 20px 26px; border-radius:20px; }
+    .tag-pill{ left:16px; font-size:12.5px; padding:10px 18px; }
+    .event-title{ font-size:23px; }
+    .theme-quote{ font-size:21px; }
+    .legend{ padding:14px 16px; gap:10px 14px; }
+    .month-card{ padding:18px 16px 16px; border-radius:18px; }
+    .month-name{ font-size:21px; }
+
+    .dow-row{ display:none; }
+    .day-grid{ grid-template-columns:1fr; gap:6px; }
+    .day-cell{
+      flex-direction:row;
+      align-items:flex-start;
+      min-height:auto;
+      padding:9px 10px;
+      gap:10px;
+    }
+    .day-cell.empty{ display:none; }
+    .day-num{
+      flex:0 0 40px;
+      font-size:13px;
+      padding-top:1px;
+    }
+    .day-num::before{
+      content: attr(data-dow);
+      display:block;
+      font-size:8.5px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      color:#a3a3a3;
+      margin-bottom:2px;
+    }
+    .day-tasks{ flex:1 1 auto; min-width:0; }
+    .day-tasks:empty::after{
+      content:"No scheduled post";
+      display:block;
+      font-size:11.5px;
+      font-style:italic;
+      color:#c2c2c2;
+      padding-top:2px;
+    }
+    .pill{ font-size:11.5px; padding:6px 8px; }
+
+    .phase{ flex:1 1 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="tag-pill">CONTENT &amp; SOCIAL MEDIA TIMELINE</div>
+    <div class="event-title">8th General Conference</div>
+    <div class="event-sub">TINGUHA 2026 CULMINATION &nbsp;·&nbsp; NOVEMBER 23&ndash;27, 2026</div>
+    <div class="theme-grid">
+      <div class="theme-quote">&ldquo;By <span>Grace</span> Alone&rdquo;</div>
+      <div class="theme-body">
+        <p>Our declaration that:</p>
+        <ul>
+          <li>What has been sustained was <strong>not by our strength</strong></li>
+          <li>What has grown was <strong>not by our wisdom</strong></li>
+          <li>What has endured was <strong>not by our faithfulness alone</strong></li>
+        </ul>
+        <p>As we culminate TINGUHA 2026, we anchor our identity not in achievement but in dependence on God.</p>
+        <p><strong>This is not just a theme &mdash; it is our confession, our celebration, and our future.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-title">LEGEND</span>
+    <div class="legend-item"><span class="swatch blue"></span> Video / Production</div>
+    <div class="legend-item"><span class="swatch yellow"></span> Social Media Post</div>
+    <div class="legend-item"><span class="swatch tint-green"></span> Campaign Phase / Month-long</div>
+    <div class="legend-item"><span class="swatch tint-yellow"></span> Countdown Window</div>
+    <div class="legend-item"><span class="swatch event"></span> 8th General Conference (Nov 23&ndash;27)</div>
+  </div>
+
+  <div class="months">
+    <div class="month-card">
+  <div class="month-head"><span class="month-name">JULY</span><span class="month-year">2026</span></div>
+  <div class="dow-row">
+    <div class="dow">SUN</div>
+    <div class="dow">MON</div>
+    <div class="dow">TUE</div>
+    <div class="dow">WED</div>
+    <div class="dow">THU</div>
+    <div class="dow">FRI</div>
+    <div class="dow">SAT</div>
+  </div>
+  <div class="day-grid">
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="WED">1</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="THU">2</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="FRI">3</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SAT">4</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SUN">5</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="MON">6</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="TUE">7</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="WED">8</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="THU">9</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="FRI">10</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SAT">11</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SUN">12</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="MON">13</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="TUE">14</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="WED">15</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="THU">16</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="FRI">17</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SAT">18</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SUN">19</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="MON">20</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="TUE">21</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="WED">22</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="THU">23</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="FRI">24</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SAT">25</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SUN">26</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="MON">27</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="TUE">28</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="WED">29</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="THU">30</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="FRI">31</div>
+      <div class="day-tasks">
+        <div class="pill pill-blue">
+          <div class="pill-text">🎬 30-Sec Teaser Drops</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell empty"></div>
+  </div>
+</div>
+<div class="month-card">
+  <div class="month-head"><span class="month-name">AUGUST</span><span class="month-year">2026</span></div>
+  <div class="ribbon ribbon-green">🌍  MISSIONS MONTH CELEBRATION — celebrated all throughout August</div>
+  <div class="dow-row">
+    <div class="dow">SUN</div>
+    <div class="dow">MON</div>
+    <div class="dow">TUE</div>
+    <div class="dow">WED</div>
+    <div class="dow">THU</div>
+    <div class="dow">FRI</div>
+    <div class="dow">SAT</div>
+  </div>
+  <div class="day-grid">
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">1</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">2</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">3</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">4</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">5</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">6</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">7</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">8</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">9</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">10</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">11</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">12</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">13</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">14</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">15</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">16</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">17</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">18</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">19</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">20</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">21</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">22</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">23</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">24</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">25</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">26</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">27</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">28</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">29</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">30</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">31</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+  </div>
+</div>
+<div class="month-card">
+  <div class="month-head"><span class="month-name">SEPTEMBER</span><span class="month-year">2026</span></div>
+  <div class="ribbon ribbon-yellow">🇵🇭  PHILIPPINE FREE METHODISM MONTH — Historical Infographics posted 2x a week</div>
+  <div class="dow-row">
+    <div class="dow">SUN</div>
+    <div class="dow">MON</div>
+    <div class="dow">TUE</div>
+    <div class="dow">WED</div>
+    <div class="dow">THU</div>
+    <div class="dow">FRI</div>
+    <div class="dow">SAT</div>
+  </div>
+  <div class="day-grid">
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">1</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">📌 POST: Official Poster — FM Month</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">2</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">3</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">4</div>
+      <div class="day-tasks">
+        <div class="pill pill-blue">
+          <div class="pill-text">🎥 Promo Video Shoot — BOA, Cebu</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">5</div>
+      <div class="day-tasks">
+        <div class="pill pill-blue">
+          <div class="pill-text">🎥 Shoot continues (Cebu)</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">6</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">7</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">8</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">9</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">10</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">11</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">12</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">13</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">14</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">15</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">16</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">17</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">18</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">19</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">20</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">21</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">22</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">23</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">24</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">25</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">26</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">27</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">28</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">29</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">30</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+  </div>
+</div>
+<div class="month-card">
+  <div class="month-head"><span class="month-name">OCTOBER</span><span class="month-year">2026</span></div>
+  <div class="dow-row">
+    <div class="dow">SUN</div>
+    <div class="dow">MON</div>
+    <div class="dow">TUE</div>
+    <div class="dow">WED</div>
+    <div class="dow">THU</div>
+    <div class="dow">FRI</div>
+    <div class="dow">SAT</div>
+  </div>
+  <div class="day-grid">
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">1</div>
+      <div class="day-tasks">
+        <div class="pill pill-blue">
+          <div class="pill-text">🖼 New Cover Photo & Profile Pic — PGC FB</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">2</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">3</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">4</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">5</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">6</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">7</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">8</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">9</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">10</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">11</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">12</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">13</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">14</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">15</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">16</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">17</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">18</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">19</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">20</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">21</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">22</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">23</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">24</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">25</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">26</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">27</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">28</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">29</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">30</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">31</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+  </div>
+  <div class="phase-strip">
+    <div class="phase phase-green">
+      <span class="phase-date">OCT 1–15</span>
+      <span class="phase-text">1st half: Present Admin Infographics</span>
+    </div>
+    <div class="phase phase-yellow">
+      <span class="phase-date">OCT 16–31</span>
+      <span class="phase-text">2nd half: Promo posts — T-shirt/Merch, Registration, Event Details</span>
+    </div>
+  </div>
+</div>
+<div class="month-card">
+  <div class="month-head"><span class="month-name">NOVEMBER</span><span class="month-year">2026</span></div>
+  <div class="dow-row">
+    <div class="dow">SUN</div>
+    <div class="dow">MON</div>
+    <div class="dow">TUE</div>
+    <div class="dow">WED</div>
+    <div class="dow">THU</div>
+    <div class="dow">FRI</div>
+    <div class="dow">SAT</div>
+  </div>
+  <div class="day-grid">
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">1</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">2</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">3</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">4</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">5</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">6</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">7</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">8</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="MON">9</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="TUE">10</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="WED">11</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="THU">12</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="FRI">13</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SAT">14</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell tint-green">
+      <div class="day-num" data-dow="SUN">15</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">⏳ D-8 · Countdown begins</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="MON">16</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-7</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="TUE">17</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-6</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="WED">18</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-5</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="THU">19</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-4</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="FRI">20</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-3</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SAT">21</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-2</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-yellow">
+      <div class="day-num" data-dow="SUN">22</div>
+      <div class="day-tasks">
+        <div class="pill pill-yellow">
+          <div class="pill-text">D-1 · Tomorrow!</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-event">
+      <div class="day-num" data-dow="MON">23</div>
+      <div class="day-tasks">
+        <div class="pill pill-event">
+          <div class="pill-text">🎉 Day 1 — Conference Opens</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-event">
+      <div class="day-num" data-dow="TUE">24</div>
+      <div class="day-tasks">
+        <div class="pill pill-event">
+          <div class="pill-text">Day 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-event">
+      <div class="day-num" data-dow="WED">25</div>
+      <div class="day-tasks">
+        <div class="pill pill-event">
+          <div class="pill-text">Day 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-event">
+      <div class="day-num" data-dow="THU">26</div>
+      <div class="day-tasks">
+        <div class="pill pill-event">
+          <div class="pill-text">Day 4</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell tint-event">
+      <div class="day-num" data-dow="FRI">27</div>
+      <div class="day-tasks">
+        <div class="pill pill-event">
+          <div class="pill-text">Day 5 — Closing</div>
+        </div>
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SAT">28</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="SUN">29</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell">
+      <div class="day-num" data-dow="MON">30</div>
+      <div class="day-tasks">
+      </div>
+    </div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+    <div class="day-cell empty"></div>
+  </div>
+  <div class="phase-strip">
+    <div class="phase phase-green">
+      <span class="phase-date">NOV 1–15</span>
+      <span class="phase-text">1st half: Venue & Guest posting + General Schedule</span>
+    </div>
+    <div class="phase phase-yellow">
+      <span class="phase-date">NOV 15–22</span>
+      <span class="phase-text">Countdown — 8 days before the conference</span>
+    </div>
+    <div class="phase phase-event">
+      <span class="phase-date">NOV 23–27</span>
+      <span class="phase-text">8TH GENERAL CONFERENCE — Nov 23–27, 2026</span>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="footer-note">
+    Colors from FMWM-Asia brand palette &mdash; Primary #005542, Secondary #FEDC48, Tertiary #6590CC.<br>
+    Typeset in Montserrat (headings) and Poppins as a stand-in for CMG Sans, pending the brand font file.
+  </div>
+
+</div>
+</body>
+</html>
