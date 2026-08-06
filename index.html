@@ -110,6 +110,38 @@
   }
   .theme-body strong{ color:var(--green); }
 
+  /* ---------- Month jump control ---------- */
+  .month-filter{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:16px 26px;
+    margin-bottom:18px;
+    box-shadow:0 12px 26px rgba(0,0,0,0.22);
+  }
+  .month-filter label{
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+    color:var(--green);
+  }
+  .month-filter select{
+    font-family:'Montserrat', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--green);
+    background:#fafafa;
+    border:2px solid var(--green);
+    border-radius:10px;
+    padding:9px 14px;
+    cursor:pointer;
+    flex:0 1 220px;
+  }
+  .month-filter select:focus{ outline:2px solid var(--blue); outline-offset:2px; }
+
   /* ---------- Legend ---------- */
   .legend{
     display:flex;
@@ -298,6 +330,8 @@
     .event-title{ font-size:23px; }
     .theme-quote{ font-size:21px; }
     .legend{ padding:14px 16px; gap:10px 14px; }
+    .month-filter{ padding:14px 16px; flex-wrap:wrap; gap:10px; }
+    .month-filter select{ flex:1 1 100%; }
     .month-card{ padding:18px 16px 16px; border-radius:18px; }
     .month-name{ font-size:21px; }
 
@@ -362,6 +396,18 @@
     </div>
   </div>
 
+  <div class="month-filter">
+    <label for="monthSelect">Jump to month</label>
+    <select id="monthSelect">
+      <option value="all">All Months</option>
+      <option value="7">July 2026</option>
+      <option value="8">August 2026</option>
+      <option value="9">September 2026</option>
+      <option value="10">October 2026</option>
+      <option value="11">November 2026</option>
+    </select>
+  </div>
+
   <div class="legend">
     <span class="legend-title">LEGEND</span>
     <div class="legend-item"><span class="swatch blue"></span> Video / Production</div>
@@ -372,7 +418,7 @@
   </div>
 
   <div class="months">
-    <div class="month-card">
+    <div class="month-card" data-month="7">
   <div class="month-head"><span class="month-name">JULY</span><span class="month-year">2026</span></div>
   <div class="dow-row">
     <div class="dow">SUN</div>
@@ -548,7 +594,7 @@
     <div class="day-cell empty"></div>
   </div>
 </div>
-<div class="month-card">
+<div class="month-card" data-month="8">
   <div class="month-head"><span class="month-name">AUGUST</span><span class="month-year">2026</span></div>
   <div class="ribbon ribbon-green">🌍  MISSIONS MONTH CELEBRATION — celebrated all throughout August</div>
   <div class="dow-row">
@@ -729,7 +775,7 @@
     <div class="day-cell empty"></div>
   </div>
 </div>
-<div class="month-card">
+<div class="month-card" data-month="9">
   <div class="month-head"><span class="month-name">SEPTEMBER</span><span class="month-year">2026</span></div>
   <div class="ribbon ribbon-yellow">🇵🇭  PHILIPPINE FREE METHODISM MONTH — Historical Infographics posted 2x a week</div>
   <div class="dow-row">
@@ -908,7 +954,7 @@
     <div class="day-cell empty"></div>
   </div>
 </div>
-<div class="month-card">
+<div class="month-card" data-month="10">
   <div class="month-head"><span class="month-name">OCTOBER</span><span class="month-year">2026</span></div>
   <div class="dow-row">
     <div class="dow">SUN</div>
@@ -1094,7 +1140,7 @@
     </div>
   </div>
 </div>
-<div class="month-card">
+<div class="month-card" data-month="11">
   <div class="month-head"><span class="month-name">NOVEMBER</span><span class="month-year">2026</span></div>
   <div class="dow-row">
     <div class="dow">SUN</div>
@@ -1324,5 +1370,36 @@
   </div>
 
 </div>
+
+<script>
+  (function(){
+    var select = document.getElementById('monthSelect');
+    var cards = document.querySelectorAll('.month-card');
+
+    function applyFilter(){
+      var val = select.value;
+      cards.forEach(function(card){
+        card.style.display = (val === 'all' || card.getAttribute('data-month') === val) ? '' : 'none';
+      });
+    }
+
+    select.addEventListener('change', applyFilter);
+
+    // Default to the current month if today falls within the campaign window (Jul-Nov 2026),
+    // otherwise show every month.
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = now.getMonth() + 1;
+    var target = 'all';
+    if (y === 2026 && m >= 7 && m <= 11) {
+      target = String(m);
+    }
+    var hasOption = Array.prototype.some.call(select.options, function(o){ return o.value === target; });
+    select.value = hasOption ? target : 'all';
+
+    applyFilter();
+  })();
+</script>
+
 </body>
 </html>
